@@ -11,8 +11,9 @@ import SwiftUI
 struct PetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()  // 保持使用 HomeView 作为初始视图
         }
     }
 }
+
 
