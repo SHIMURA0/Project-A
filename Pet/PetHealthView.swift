@@ -53,13 +53,29 @@ struct NewbieGuideView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                GuideItem(title: "疫苗接种", icon: "syringe", content: "定期接种疫苗对预防宠物疾病至关重要。请咨询兽医制定适合您宠物的疫苗计划。")
+                GuideItem(
+                    title: "疫苗接种",
+                    icon: "syringe",
+                    content: "定期接种疫苗对预防宠物疾病至关重要。请咨询兽医制定适合您宠物的疫苗计划。"
+                )
                 
-                GuideItem(title: "洗澡与清洁", icon: "shower", content: "定期洗澡可以保持宠物清洁，但不要过于频繁。一般每1-3个月洗一次，使用专门的宠物洗发水。")
+                GuideItem(
+                    title: "洗澡与清洁",
+                    icon: "shower",
+                    content: "定期洗澡可以保持宠物清洁，但不要过于频繁。一般每1-3个月洗一次，使用专门的宠物洗发水。"
+                )
                 
-                GuideItem(title: "营养与饮食", icon: "fork.knife", content: "选择适合年龄和品种的高质量宠物食品，控制食量，避免肥胖，并保证新鲜水源。")
+                GuideItem(
+                    title: "营养与饮食",
+                    icon: "fork.knife",
+                    content: "选择适合年龄和品种的高质量宠物食品，控制食量，避免肥胖，并保证新鲜水源。"
+                )
                 
-                GuideItem(title: "定期体检", icon: "stethoscope", content: "每年至少进行一次全面体检，检查体重和身体状况，进行血液和粪便检查。")
+                GuideItem(
+                    title: "定期体检",
+                    icon: "stethoscope",
+                    content: "每年至少进行一次全面体检，检查体重和身体状况，进行血液和粪便检查。"
+                )
             }
             .padding()
         }
@@ -96,9 +112,21 @@ struct CommonIssuesView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                IssueItem(title: "皮肤问题", symptoms: "瘙痒、脱毛、皮疹", advice: "可能是过敏或寄生虫导致，建议及时就医")
-                IssueItem(title: "消化问题", symptoms: "呕吐、腹泻、食欲不振", advice: "注意饮食卫生，严重时需就医")
-                IssueItem(title: "牙齿问题", symptoms: "口臭、牙结石、牙龈出血", advice: "定期刷牙，进行专业洁牙")
+                IssueItem(
+                    title: "皮肤问题",
+                    symptoms: "瘙痒、脱毛、皮疹",
+                    advice: "可能是过敏或寄生虫导致，建议及时就医"
+                )
+                IssueItem(
+                    title: "消化问题",
+                    symptoms: "呕吐、腹泻、食欲不振",
+                    advice: "注意饮食卫生，严重时需就医"
+                )
+                IssueItem(
+                    title: "牙齿问题",
+                    symptoms: "口臭、牙结石、牙龈出血",
+                    advice: "定期刷牙，进行专业洁牙"
+                )
                 // 添加更多常见问题...
             }
             .padding()
@@ -214,32 +242,7 @@ struct NearbyHospitalsView: View {
         center: CLLocationCoordinate2D(latitude: 31.2304, longitude: 121.4737),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     ))
-    
-//    var body: some View {
-//        VStack {
-//            Map(position: $cameraPosition) {
-//                ForEach(hospitals) { hospital in
-//                    Marker(hospital.name, coordinate: hospital.coordinate)
-//                        .tint(.red)
-//                }
-//            }
-//            .frame(height: 300)
-//            
-//            List(hospitals) { hospital in
-//                HospitalRow(hospital: hospital)
-//                    .onTapGesture {
-//                        selectedHospital = hospital
-//                    }
-//            }
-//        }
-//        .sheet(item: $selectedHospital) { hospital in
-//            HospitalDetailView(hospital: hospital, isPresented: Binding(
-//                get: { selectedHospital != nil },
-//                set: { if !$0 { selectedHospital = nil } }
-//            ))
-//        }
-//        .onAppear(perform: loadHospitals)
-//    }
+
     var body: some View {
             ScrollView {
                 VStack(spacing: 16) {
@@ -275,12 +278,28 @@ struct NearbyHospitalsView: View {
                     Feature(name: "价格合理", votes: 95)
                 ],
                 comments: [
-                    Comment(user: "猫咪爱好者", content: "医生很专业，我家猫咪的皮肤病很快就好了", date: Date()),
-                    Comment(user: "狗狗妈妈", content: "环境很干净，狗狗不会很紧张", date: Date().addingTimeInterval(-86400))
+                    Comment(
+                        user: "猫咪爱好者",
+                        content: "医生很专业，我家猫咪的皮肤病很快就好了",
+                        date: Date()
+                    ),
+                    Comment(
+                        user: "狗狗妈妈",
+                        content: "环境很干净，狗狗不会很紧张",
+                        date: Date().addingTimeInterval(-86400)
+                    )
                 ],
                 qas: [
-                    QA(question: "请问你们有24小时急诊吗？", answer: "是的，我们提供24小时急诊服务。", date: Date().addingTimeInterval(-172800)),
-                    QA(question: "绝育手术大概需要多少费用？", answer: "绝育手术的费用因动物的体型和具体情况而异，一般在500-1500元之间。建议您带宠物来院做个评估。", date: Date().addingTimeInterval(-259200))
+                    QA(
+                        question: "请问你们有24小时急诊吗？",
+                        answer: "是的，我们提供24小时急诊服务。",
+                        date: Date().addingTimeInterval(-172800)
+                    ),
+                    QA(
+                        question: "绝育手术大概需要多少费用？",
+                        answer: "绝育手术的费用因动物的体型和具体情况而异，一般在500-1500元之间。建议您带宠物来院做个评估。",
+                        date: Date().addingTimeInterval(-259200)
+                    )
                 ]
             ),
             // 添加更多医院...
@@ -401,7 +420,7 @@ struct HospitalDetailView: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("医院详情", displayMode: .inline)
+            .navigationBarTitle("宠物医院详情", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 isPresented = false
             }) {
@@ -464,10 +483,10 @@ struct QAView: View {
         VStack(alignment: .leading, spacing: 16) {
             ForEach(qas) { qa in
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Q: \(qa.question)")
+                    Text("问题: \(qa.question)")
                         .font(.headline)
-                    Text("A: \(qa.answer)")
-                        .padding(.leading)
+                    Text("回答: \(qa.answer)")
+//                        .padding(.leading)
                     Text(qa.date, style: .date)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -479,54 +498,6 @@ struct QAView: View {
         }
     }
 }
-
-
-//struct NearbyHospitalsView: View {
-//    @State private var position: MapCameraPosition = .region(MKCoordinateRegion(
-//        center: CLLocationCoordinate2D(latitude: 31.2304, longitude: 121.4737),
-//        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//    ))
-//    
-//    var body: some View {
-//        VStack {
-//            Map(position: $position) {
-//                // 这里可以添加标记点等
-//            }
-//            .frame(height: 300)
-//            
-//            List {
-//                HospitalItem(name: "爱宠动物医院", distance: "0.5 km", rating: 4.5)
-//                HospitalItem(name: "康乐宠物诊所", distance: "1.2 km", rating: 4.2)
-//                HospitalItem(name: "阳光宠物医院", distance: "2.0 km", rating: 4.8)
-//                // 添加更多医院...
-//            }
-//        }
-//    }
-//}
-//
-//struct HospitalItem: View {
-//    let name: String
-//    let distance: String
-//    let rating: Double
-//    
-//    var body: some View {
-//        HStack {
-//            VStack(alignment: .leading) {
-//                Text(name)
-//                    .font(.headline)
-//                Text(distance)
-//                    .font(.subheadline)
-//                    .foregroundColor(.secondary)
-//            }
-//            Spacer()
-//            HStack {
-//                Image(systemName: "star.fill")
-//                    .foregroundColor(.yellow)
-//                Text(String(format: "%.1f", rating))
-//            }
-//        }
-//    }
-//}
 
 struct PetHealthView_Previews: PreviewProvider {
     static var previews: some View {
