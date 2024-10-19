@@ -61,46 +61,43 @@ struct IntroductionView: View {
 
 struct VaccineCard: View {
     let vaccine: VaccineInfo
-    let width: CGFloat
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Text(vaccine.name)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
-                    .background(vaccine.color)
-                    .cornerRadius(5)
+        let width: CGFloat
+        
+        var body: some View {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
+                    Text(vaccine.name)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .background(vaccine.color)
+                        .cornerRadius(5)
+                    
+                    Spacer()
+                    
+                    Image(systemName: petTypeIcon(for: vaccine.petType))
+                        .foregroundColor(vaccine.color)
+                        .font(.system(size: 24))
+                }
                 
-                Spacer()
+                Text(vaccine.description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
                 
-                Image(systemName: petTypeIcon(for: vaccine.petType))
-                    .foregroundColor(vaccine.color)
-                    .font(.system(size: 24))
-            }
-            
-            Text(vaccine.description)
-                .font(.subheadline)
+                HStack {
+                    Image(systemName: "clock")
+                    Text("接种时间: \(vaccine.timing)")
+                }
+                .font(.caption)
                 .foregroundColor(.secondary)
-                .lineLimit(3)
-            
-            Spacer()
-            
-            HStack {
-                Image(systemName: "clock")
-                Text("接种时间: \(vaccine.timing)")
             }
-            .font(.caption)
-            .foregroundColor(.secondary)
+            .padding()
+            .frame(width: width)
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 2)
         }
-        .padding()
-        .frame(width: width, height: 180)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 2)
-    }
     
     func petTypeIcon(for type: PetType) -> String {
         switch type {
